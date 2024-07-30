@@ -55,7 +55,7 @@ toolz==0.12.1
 tqdm==4.66.4
 typeguard==4.3.0
 tzdata==2024.1
-visions==0.7.6
+visions
 watchdog==4.0.1
 widgetsnbextension==4.0.11
 wordcloud==1.9.3
