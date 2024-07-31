@@ -5,6 +5,7 @@ from src.data_management import load_data
 # load data
 df = load_data()
 
+
 def page_summary_body():
 
     st.write(
@@ -30,12 +31,12 @@ def page_summary_body():
         " to ensure a stable and engaged workforce."
         " containing individual customer data on the products and services"
         " (like internet type, online security, online backup, tech support),"
-        " account information (like contract type, payment method," 
+        " account information (like contract type, payment method,"
         " monthly charges) and profile (like gender, partner, dependents)."
     )
 
     st.write("### Project Dataset")
-        
+
     st.info(
         " The dataset can be found on "
         " [Kaggle](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)"
@@ -50,7 +51,8 @@ def page_summary_body():
 
     st.dataframe(load_data())
 
-    # Link to README file, so the users can have access to full project documentation
+    # Link to README file, so the users can have acces
+    # to full project documentation
     st.write(
         f"* For explanation of variable meanings and further info"
         f"on the dataset please visit and **read** the "
@@ -66,5 +68,3 @@ def page_summary_body():
         " 2. The client is interested in predicting whether a certain"
         " employee will decide to leave the company."
     )
-
-        

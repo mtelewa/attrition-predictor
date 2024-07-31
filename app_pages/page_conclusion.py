@@ -1,17 +1,18 @@
 import streamlit as st
 
 strong_correlators = ['TotalWorkingYears', 'YearsAtCompany',
-                       'YearsWithCurrManager', 'OverTime',
-                       'YearsInCurrentRole', 'JobLevel',
-                       'MaritalStatus', 'JobRole', 'Age',
-                       'MonthlyIncome', 'StockOptionLevel'
-                     ]
+                      'YearsWithCurrManager', 'OverTime',
+                      'YearsInCurrentRole', 'JobLevel',
+                      'MaritalStatus', 'JobRole', 'Age',
+                      'MonthlyIncome', 'StockOptionLevel'
+                      ]
 
 feat_selection_vars = ['OverTime', 'YearsAtCompany', 'Age',
                        'JobLevel', 'StockOptionLevel', 'Department',
                        'JobInvolvement', 'EnvironmentSatisfaction',
                        'JobSatisfaction'
                        ]
+
 
 def intersection(lst1, lst2):
     """
@@ -20,7 +21,9 @@ def intersection(lst1, lst2):
     lst3 = [value for value in lst1 if value in lst2]
     return lst3
 
+
 common_vars = intersection(strong_correlators, feat_selection_vars)
+
 
 def page_conclusion_body():
 

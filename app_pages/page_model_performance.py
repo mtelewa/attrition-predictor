@@ -44,15 +44,18 @@ def page_model_performance_body():
     st.write(f"#### ML Pipelines")
     st.write(f"For this model there were 2 ML Pipelines arrange in series:\n")
 
-    st.write(f"* The first pipeline is responsible for data cleaning and feature engineering.\n")
+    st.write(f"* The first pipeline is responsible for data cleaning and\
+             feature engineering.\n")
     st.write(dc_fe_pipeline)
 
-    st.write(f"* The second pipeline is responsible for feature scaling and modelling.\n")
+    st.write(f"* The second pipeline is responsible for feature scaling and\
+             modeling.\n")
     st.write(model_pipeline)
 
     st.write("---")
     st.write(f"#### Feature Importance")
-    st.write(f"* The most important features used for training the model were as follows:\n")
+    st.write(f"* The most important features used for training the model were\
+             as follows:\n")
     st.write(X_train.columns.to_list())
     st.image(feat_importance)
 

@@ -5,17 +5,18 @@ import pandas as pd
 from src.data_management import load_data
 sns.set_style("whitegrid")
 
+
 def page_hypotheses_body():
 
     # load data
     df = load_data()
-    
+
     # load train dataset
     def load_train():
         X_train = pd.read_csv(
             f"outputs/ml_pipelines/v3/X_train.csv")
         return X_train
-    
+
     features_importance = plt.imread(
         f"outputs/ml_pipelines/v3/features_importance.png")
 
@@ -64,7 +65,7 @@ def page_hypotheses_body():
 
     # inspect data
     if st.checkbox("Inspect Gender-Attrition relation"):
-        show_plot(load_data(), 'Gender', 'Attrition', 
+        show_plot(load_data(), 'Gender', 'Attrition',
                   stat="probability", multiple="stack")
 
     st.write("---")
@@ -78,7 +79,7 @@ def page_hypotheses_body():
         " feature selection in the ML pipeline, only 9 variables"
         " out of the 34 are good predictors of attrition"
     )
-    
+
     # inspect data
     if st.checkbox("Inspect most important features\
                    (highest to lowest)"):

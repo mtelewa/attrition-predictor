@@ -21,11 +21,13 @@ vars_to_consider = ['TotalWorkingYears', 'YearsAtCompany',
 df_eda = df.filter(list(vars_to_consider))
 df_eda['Attrition'] = df['Attrition']
 
+
 def encode_df():
     """
     one hot encoder to transform data from categorical to numerical
     """
-    encoder = OneHotEncoder(variables=df.columns[df.dtypes=='object'].to_list(), drop_last=True)
+    encoder = OneHotEncoder(variables=df.columns[df.dtypes == 'object']
+                                        .to_list(), drop_last=True)
     df_ohe = encoder.fit_transform(df)
     return df_ohe
 
@@ -38,7 +40,7 @@ def correlation(method):
     """
     print(encode_df())
     corr = encode_df().corr(method=method)['Attrition']\
-           .sort_values(key=abs, ascending=False)[1:].head(10)
+                      .sort_values(key=abs, ascending=False)[1:].head(10)
     df_corr = corr.to_frame()
     corr_variables = df_corr.index.to_list()
     return corr_variables
@@ -48,9 +50,9 @@ def heatmap_corr(matrix):
     """
     plots the heatmap - this function was adopted from EDA tools lesson
     """
-    fig, ax = plt.subplots(figsize=(16,16))
+    fig, ax = plt.subplots(figsize=(16, 16))
     heatmap = sns.heatmap(matrix, annot=True, annot_kws={"size": 6},
-                    cmap='rocket_r', linecolor='lightgrey')
+                          cmap='rocket_r', linecolor='lightgrey')
     heatmap.set(xlabel=None, ylabel=None)
     st.pyplot(fig)
 
@@ -71,12 +73,11 @@ def plot_numerical(df, col, target_var):
     st.pyplot(fig)
 
 
-
 def page_correlation_body():
 
     # hard copied from churned customer study notebook
     vars_to_study = ['Contract', 'InternetService',
-                    'OnlineSecurity', 'TechSupport', 'tenure']
+                     'OnlineSecurity', 'TechSupport', 'tenure']
 
     st.write("### Feature Correlation Analysis")
 
@@ -95,7 +96,6 @@ def page_correlation_body():
     )
 
     st.write("---")
-
 
     st.write("#### Correlation Analysis")
     st.write(
@@ -122,7 +122,8 @@ def page_correlation_body():
     if st.checkbox("PPS heatmap"):
         pps_matrix_raw = pps.matrix(df_eda)
         pps_matrix = pps_matrix_raw.filter(['x', 'y', 'ppscore'])\
-                     .pivot(columns='x', index='y', values='ppscore')
+                                   .pivot(columns='x', index='y',
+                                          values='ppscore')
         heatmap_corr(pps_matrix)
 
     st.write("---")
@@ -142,13 +143,12 @@ def page_correlation_body():
     else:
         plot_numerical(df_eda, feature, 'Attrition')
 
-
     st.success(
         f"#### Conclusions\n\n"
         f" Unfortunately, from the correlation analysis alone, it"
         f" was not very clear how the strongly correlated features really"
-        f" affect attrition. As can be seen, the distrubution of both attrition"
-        f" and no-attrition are very close.\n\n"
+        f" affect attrition. As can be seen, the distrubution of both"
+        f" attrition and no-attrition are very close.\n\n"
         f" One specific feature, however, stands out"
         f" as clearly negatively correlated to attrition, which is `OverTime`"
         f" The more an employee works overtime, the more they are prone to "
