@@ -1,12 +1,9 @@
 import streamlit as st
 import pandas as pd
+from src.data_management import load_data
 
 # load data
-@st.cache_data
-def load_data():
-    df = pd.read_csv(
-        "outputs/datasets/collection/employee-attrition.csv").head(5)
-    return df
+df = load_data()
 
 def page_summary_body():
 

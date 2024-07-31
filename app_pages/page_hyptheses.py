@@ -2,17 +2,14 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+from src.data_management import load_data
 sns.set_style("whitegrid")
 
 def page_hypotheses_body():
 
     # load data
-    @st.cache_data
-    def load_data():
-        df = pd.read_csv(
-            "outputs/datasets/collection/employee-attrition.csv")
-        return df
-
+    df = load_data()
+    
     # load train dataset
     def load_train():
         X_train = pd.read_csv(
