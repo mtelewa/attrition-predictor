@@ -84,7 +84,7 @@ In 19 columns out of the 26 numerical ones, the data summary is as follows:
 | Num Companies Worked      | Number of companies worked at		                         | 0 - 9        |
 | Percent Salary Hike       | Percentage increase in salary between 2 years 			 | 11 - 25      |
 | **Standard Hours***       | Standard working hours per week				 			 | 80	        |
-| Stock Options Level       | How much company stocks an employee own from the company   | 0 - 3        |
+| Stock Options Level       | How many company stocks an employee own from the company   | 0 - 3        |
 | Total Working Years       | Total years worked   										 | 0 - 40       |
 | Training Times Last Year  | Trainings the employee had   								 | 0 - 6        |
 | Years At Company          | Number of years employee stayed at the company   			 | 0 - 40       |
