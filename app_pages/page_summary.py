@@ -17,22 +17,22 @@ def page_summary_body():
     st.write("### Project Summary")
 
     st.info(
-        " The attrition predictor predicts whether an employee will"
-        " remain in the workforce according to multiple factors like"
-        " demographics, work culture, etc. Attrition in this context"
-        " could be voulantary as well as involuntary leave from an"
-        " organization for unpredictable or uncontrollable reasons."
-        " With a high attrition rate, a company is likely to shrink in size."
-        " Employee attrition leads to significant costs for a business,"
-        " including the cost of business disruption, hiring and training"
-        " new staff. Therefore, there is great business interest in"
-        " understanding the drivers of, and minimizing staff attrition."
-        " Managing and understanding attrition is pivotal for organizations"
-        " to ensure a stable and engaged workforce."
-        " containing individual customer data on the products and services"
-        " (like internet type, online security, online backup, tech support),"
-        " account information (like contract type, payment method,"
-        " monthly charges) and profile (like gender, partner, dependents)."
+        f" The attrition predictor predicts whether an employee will"
+        f" remain in the workforce according to multiple factors like"
+        f" demographics, work culture, etc. Attrition in this context"
+        f" could be voulantary as well as involuntary leave from an"
+        f" organization for unpredictable or uncontrollable reasons."
+        f" With a high attrition rate, a company is likely to shrink in size."
+        f" \n\nEmployee attrition leads to significant costs for a business,"
+        f" including the cost of business disruption, hiring and training"
+        f" new staff. Therefore, there is great business interest in"
+        f" understanding the drivers of, and minimizing staff attrition."
+        f" Managing and understanding attrition is pivotal for organizations"
+        f" to ensure a stable and engaged workforce."
+        f" containing individual customer data on the products and services"
+        f" (like internet type, online security, online backup, tech support),"
+        f" account information (like contract type, payment method,"
+        f" monthly charges) and profile (like gender, partner, dependents)."
     )
 
     st.write("### Project Dataset")
