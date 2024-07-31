@@ -218,6 +218,7 @@ The technologies used throughout the development are listed below:
 
 ## Unfixed Bugs
 * There are no unfixed bugs except for Jupyter notebook sometimes not plotting when the `Run All` button is pressed.
+* Sometimes I get `StreamlitAPIException: set_page_config() can only be called once per app page`, with a refresh of the webpage the streamlit app works fine again. The source of the issue is unknown.
 
 
 ## Deployment
