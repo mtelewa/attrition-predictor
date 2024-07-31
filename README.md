@@ -9,6 +9,8 @@
 
 [IBM HR Analytics Employee Attrition & Performance - GitHub](http://inseaddataanalytics.github.io/INSEADAnalytics/groupprojects/January2018FBL/IBM_Attrition_VSS.html)
 
+Visit the live project here - https://attrition-predictor-dbb87cf1fa29.herokuapp.com/
+
 The attrition predictor predicts whether an employee will remain in the workforce according to multiple factors like demographics, work culture, etc. Attrition in this context could be voulantary as well as involuntary leave from an organization for unpredictable or uncontrollable reasons. Managing and understanding attrition is pivotal for organizations to ensure a stable and engaged workforce. With a high attrition rate, a company is likely to shrink in size. Employee attrition leads to significant costs for a business, including the cost of business disruption, hiring and training new staff. Therefore, there is great business interest in understanding the drivers of, and minimizing staff attrition.
 
 The main objective is to to predict if an employee is about to leave the company. This would allow human resources to intervene and prevent it by changing the conditions, if possible.
@@ -23,10 +25,8 @@ The statistical study and data analysis was carried out to understand how attrit
 - [Hypothesis](#hypothesis-and-how-to-validate)
 - [Mapping Business Requirements to Data Visualisation and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
-- [Epics and User Stories](#epics-and-user-stories)
 - [Dashboard Design](#dashboard-design)
 - [Technologies Used](#technologies-used)
-- [Testing](#testing)
 - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -147,35 +147,42 @@ The client (a company's HR department) requested a ML algorithm from a data prac
 
 ## Dashboard Design
 
-### Page 1: Project summary
-* Introduction to the project
-* Project Dataset description
-* State Business Requirements
+### Page 1: Project Summary
+* Introduction the project and motivation
+* Project dataset description
+* Display the first ten rows of the data
+* State business requirements
 
-### Page 2: Attrition Statistical Analysis
+### Page 2: Project Hypothesis and Validation
+* We report on whether the 3 hypotheses we posed earlier are correct
+* Checkbox to display the corresponding plot for each hypothesis
+
+### Page 3: Attrition Correlation Analysis
 * State business requirement 1
-* Checkbox: data inspection (display the first ten rows of the data)
-* Display the most correlated variables to attrition and the conclusions
-* Checkbox: Individual plots showing the attrition levels for each correlated variable 
+* Correlation analysis
+* Checkbox: display the most correlated variables to attrition 
+* Checkbox: display the predictive power score (PPS) heatmap 
+* Strongest correlation features to attrition (numerical and categorical)
+* Selectbox: to select individual plots showing the attrition levels for each correlated variable 
+* Conclusions
 
-### Page 3: Attrition predictor
-- State business requirement 2
-- Set of widgets inputs
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if an employee will leave or not.
+### Page 4: Attrition Predictor
+* State business requirement 2
+* Set of widgets inputs
+* "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if an employee will leave or not.
 
-### Page 4: Project Hypothesis and Validation
-- We report on whether the hypotheses were correct.
+### Page 5: Model Performance
+* Model success metrics
+* Present ML pipeline steps
+* Feature importance (as a list and a barplot figure), this is related to business requirement 1
+* Pipeline performance, classification report and confusion matrix
 
-### Page 5: Technical details
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-
-### Page 6: Summary
-- Feature importance (and relate to business requirement 1)
-- Pipeline performance
+### Page 6: Project Conclusions
+* Considerations and conclusions after the pipeline is trained
+* Project outcomes
 
 
-## Main Data Analysis and Machine Learning Libraries
+## Technologies Used
 The technologies used throughout the development are listed below:
 
 ### Languages
@@ -209,13 +216,8 @@ The technologies used throughout the development are listed below:
 * [CI Python Linter](https://pep8ci.herokuapp.com/) - Style guide for python
 
 
-
-## Testing
-
-
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
-
+* There are no unfixed bugs except for Jupyter notebook sometimes not plotting when the `Run All` button is pressed.
 
 
 ## Deployment
@@ -231,11 +233,12 @@ To log into the Heroku toolbelt CLI:
 4. In the terminal, run `heroku_login -i`
 5. Enter your email and paste in your API key when asked
 6. Set the stack to heroku-20 `heroku stack:set heroku-20 --app attrition-predictor`
+7. In this repo, set the `runtime.txt` Python version to `python-3.8.19` 
 
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+The App live link is: https://attrition-predictor-dbb87cf1fa29.herokuapp.com/ 
+
+### Deployment steps
 
 1. Log in to Heroku and create an App
 2. At the Deploy tab, select GitHub as the deployment method.
@@ -244,23 +247,32 @@ To log into the Heroku toolbelt CLI:
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
+### Important configuration files
+
+* `setup.sh` should contain the following
+```
+mkdir -p ~/.streamlit/
+echo "\
+[server]\n\
+headless = true\n\
+port = $PORT\n\
+enableCORS = false\n\
+\n\
+" > ~/.streamlit/config.toml
+```
+
+* `Procfile` should contain
+```
+web: sh setup.sh && streamlit run app.py
+```
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+* Helper functions and custom classes snippets were used in this project were provided by Code Institute. These are mainly adapted from the predictive analytics module.
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
+- The idea originated from a search on most used datasets on Kaggle. The content is already explained in the dataset content section.
 
 ## Acknowledgements (optional)
 * Thanks to my mentor Mo Shami, for his support and guidance on the execution of the project. Thanks to Sean Tilson, my colleague at code institute for the discussion on the model performance.
