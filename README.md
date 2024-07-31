@@ -110,7 +110,6 @@ In 19 columns out of the 26 numerical ones, the data summary is as follows:
 The bold columns with aestric (*) are dropped as they either contain only one value (Employee count, Over 18, Standard hours) or considered to not affect the target (Employee number). Additionally, the hourly, daily and monthly rates were dropped as they are ambiguous (mentioned also in this [discussion](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/discussion/319276)). The focus was on the monthly income instead.
 
 
-
 ## Business Requirements
 The client (a company's HR department) requested a ML algorithm from a data practitioner to predict attrition based on the dataset provided. The aim is to minimize attrition rates.
 
@@ -119,16 +118,18 @@ The client (a company's HR department) requested a ML algorithm from a data prac
 
 ## Hypothesis and how to validate?
 * We suspect that monthly income plays a big role in attrition
-	- correlation analysis
+	- Correlation analysis and plots
 * We suspect that men tend to leave the workforce more often than women
-	- Bar plot
+	- Correlation analysis and plots
+* We suspect that only few features affect attrition
+	- Feature selection in the ML Pipeline
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 * Business Requirement 1: Data Visualization and Correlation study
 	- We will inspect the dataset and look for patterns
 	- We will plot the main features against attrition to visualize insights
 	- We will do a feature importance analysis
-* Business Requirement 2: Classification, Regression, Cluster and Data Analysis
+* Business Requirement 2: Classification analysis
 	- We want to predict if an employee will leave or not. We want to build a binary classifier.
 	- We want to build a pipeline for the ML predictor algorithm
 

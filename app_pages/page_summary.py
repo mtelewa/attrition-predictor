@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-
-dataset = pd.read_csv(
-    f"outputs/datasets/collection/employee-attrition.csv").head(5)
-
-variables = []
+# load data
+@st.cache_data
+def load_data():
+    df = pd.read_csv(
+        "outputs/datasets/collection/employee-attrition.csv").head(5)
+    return df
 
 def page_summary_body():
 
@@ -34,7 +35,7 @@ def page_summary_body():
         " (like internet type, online security, online backup, tech support),"
         " account information (like contract type, payment method," 
         " monthly charges) and profile (like gender, partner, dependents)."
-        )
+    )
 
     st.write("### Project Dataset")
         
@@ -50,15 +51,15 @@ def page_summary_body():
 
     st.write("The dataset looks like this")
 
-    st.dataframe(dataset)
+    st.dataframe(load_data())
 
     # Link to README file, so the users can have access to full project documentation
     st.write(
         f"* For explanation of variable meanings and further info"
         f"on the dataset please visit and **read** the "
         f"[Project README file]"
-        f"(https://github.com/mtelewa/attrition-predictor).")
-    
+        f"(https://github.com/mtelewa/attrition-predictor)."
+    )
 
     # copied from README file - "Business Requirements" section
     st.success(
@@ -67,6 +68,6 @@ def page_summary_body():
         " leading to attrition "
         " 2. The client is interested in predicting whether a certain"
         " employee will decide to leave the company."
-        )
+    )
 
         

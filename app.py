@@ -3,11 +3,12 @@ from app_pages.multipage import MultiPage
 
 # load pages scripts
 from app_pages.page_summary import page_summary_body
+from app_pages.page_hyptheses import page_hypotheses_body
 
 app = MultiPage(app_name= "Attrition Predictor") # Create an instance of the app 
 
 # Add your app pages here using .add_page()
 app.add_page("Project Summary", page_summary_body)
-
+app.add_page("Project Hypotheses", page_hypotheses_body)
 
 app.run() # Run the  app
