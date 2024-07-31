@@ -62,7 +62,7 @@ def page_summary_body():
     st.success(
         " The project has 2 business requirements:\n"
         " 1. The client is interested in understanding the main factors"
-        " leading to attrition "
+        " leading to attrition\n "
         " 2. The client is interested in predicting whether a certain"
         " employee will decide to leave the company."
     )
