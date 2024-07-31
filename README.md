@@ -206,6 +206,7 @@ The technologies used throughout the development are listed below:
 * [Heroku](https://heroku.com) - For application deployment
 * [Gitpod](https://www.gitpod.io/) - Cloud IDE used for development
 * [Jupyter Notebook](https://jupyter.org/) - Interactive Python
+* [CI Python Linter](https://pep8ci.herokuapp.com/) - Style guide for python
 
 
 
